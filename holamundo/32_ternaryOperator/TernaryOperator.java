@@ -12,8 +12,6 @@ public class TernaryOperator {
 
 		aprobado = nota >= 5 ? 10 : 5;
 
-
-
 	}	
 	
 }
