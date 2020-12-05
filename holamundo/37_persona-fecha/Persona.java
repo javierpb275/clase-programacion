@@ -8,7 +8,6 @@ public class Persona {
 	String apellidos;
 	Fecha fecha;
 
-
 	public Persona() {
 
 		sc = new Scanner(System.in);
@@ -51,6 +50,16 @@ public class Persona {
 		System.out.println(this.fecha.toString());
 	}
 
+	public boolean equals(Persona p) {
+
+		boolean result = false;
+
+		if (this.nombre.equals(p.nombre) && this.apellidos.equals(p.apellidos) 
+			&& this.fecha.equals(p.fecha))
+			result = true;
+
+		return result;
+
+	}
 
 }
-

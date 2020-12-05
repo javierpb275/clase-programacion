@@ -3,7 +3,6 @@ public class Fecha {
 	int mes;
 	int dia;
 
-
 	public Fecha() {
 
 		ano = 2020;
@@ -26,5 +25,10 @@ public class Fecha {
 
 	}
 
+	public boolean equals(Fecha f) {
+
+		return (this.dia == f.mes && this.mes == f.mes && this.ano == f.ano);
+
+	}
 
 }
