@@ -19,8 +19,8 @@
 
 		}
 
-		int firstNumber = numbers[0];
-        int lastNumber = numbers[numbers.length-1];
+		int biggest = numbers[0];
+        int smallest = numbers[0];
 
 		 
         for(int i = 0; i< numbers.length; i++) {

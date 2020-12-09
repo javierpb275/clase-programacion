@@ -27,7 +27,7 @@ public class Fecha {
 
 	public boolean equals(Fecha f) {
 
-		return (this.dia == f.mes && this.mes == f.mes && this.ano == f.ano);
+		return (this.dia == f.dia && this.mes == f.mes && this.ano == f.ano);
 
 	}
 
