@@ -8,7 +8,6 @@ public class Calculadora implements Resolvible {
 
 	public Calculadora(String expresion) {
 		this.expresion = expresion;
-
 	}
 
 	private boolean esDigitoEntero(char digito) {
@@ -27,7 +26,7 @@ public class Calculadora implements Resolvible {
 	}
 
 	private boolean esOperadorValido(char digito) {
-		return ((digito == '-') && (digito == '+') && (digito == '*'));
+		return ((digito == '-') || (digito == '+') || (digito == '*'));
 	}
 
 	private int calcula(Operador operador, int operando1, int operando2) {
@@ -42,7 +41,7 @@ public class Calculadora implements Resolvible {
 			result = operando1 - operando2;
 			break;
 			case MULTIPLICAR:
-			result = operando1 + operando2;
+			result = operando1 * operando2;
 			break;
 			default:
 			result = 0;
@@ -76,6 +75,22 @@ public class Calculadora implements Resolvible {
 
 		}
 
+	private Operador charToOperator(char op) {
+
+		Operador operador;
+
+		if (op=='+') operador = Operador.SUMAR;
+		else if (op=='-') operador = Operador.RESTAR;
+		else operador = Operador.MULTIPLICAR;
+
+		return operador;
+
+	}
+
+	private int charToInt(char dato) {
+		return ((int) dato) - ((int) '0');
+	}
+
 	public int getResultado() 
 		throws ExpresionIncorrecta, ExpresionMuyLarga, ExpresionVacia {
 
@@ -86,9 +101,18 @@ public class Calculadora implements Resolvible {
 			if(this.expresion == null || this.expresion.length() == 0)
 				throw new ExpresionVacia();
 
-			int result = 0;
+			int op1 = charToInt(this.expresion.charAt(0));
+			Operador operador;
+			int op2;
+			
+			for (int i = 1; i < this.expresion.length(); i+=2) {
+				operador = charToOperator(this.expresion.charAt(i));		
+				op2 = charToInt(this.expresion.charAt(i+1));
+				op1 = calcula(operador, op1, op2);
+				
+			}
 
-			return result;
+			return op1;
 		}
 
 	public String getExpresion() {
