@@ -1,4 +1,5 @@
-public abstract class Lienzo{
+public abstract class Lienzo {
+	
 	char[][] tablero;
 	char[][] almacen1;
 	char[][] almacen2;
@@ -6,14 +7,15 @@ public abstract class Lienzo{
 	final int TAMANO = 9;
 	final char BLANCO = ' ';
 
+
 	public Lienzo(){
 		inicializar();
 	}
 
-	private void inicializar(){
+	private void inicializar() {
 		tablero = new char[TAMANO][TAMANO];
 		for (int i = 0; i < TAMANO ; i++) {
-			for (int j=0; j < TAMANO ; j++) {
+			for (int j = 0; j < TAMANO ; j++) {
 				tablero[i][j] = BLANCO;
 			}
 		}
@@ -33,11 +35,11 @@ public abstract class Lienzo{
 		}		
 
 	}
-	
-	public void mostrar(){
+
+	public void mostrar() {
 		for (int i = 0; i < TAMANO ; i++) {
-			for (int j=0; j < TAMANO ; j++) {
-				if (j>0) System.out.print(BLANCO);
+			for (int j = 0; j < TAMANO ; j++) {
+				if (j > 0) System.out.print(BLANCO);
 				System.out.print(tablero[i][j]);
 			}
 			System.out.println();

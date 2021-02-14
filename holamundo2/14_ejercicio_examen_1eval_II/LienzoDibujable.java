@@ -46,33 +46,39 @@ public void borra(int x, int y){
 } 
 
 @Override
-public void guarda(int almacen){
-	char[][] alm;
-	if (almacen==1)
-		alm=almacen1;
-	else
-		alm=almacen2;
-	for (int i = 0; i < TAMANO ; i++) {
-			for (int j=0; j < TAMANO ; j++) {
-				alm[i][j] = tablero[i][j];
-			}
-		}
-} 
+    public void guarda(int almacen) {
 
-@Override
-public void recupera(int almacen){
-	char[][] alm;
+         for (int f=0;f<tablero.length ;f++ ) {
 
-	if (almacen==1)
-		alm=almacen1;
-	else
-		alm=almacen2;
-	for (int i = 0; i < TAMANO ; i++) {
-			for (int j=0; j < TAMANO ; j++) {
-				tablero[i][j] = alm[i][j];
-			}
-		}
-}
+         for (int c=0;c<tablero[0].length ;c++ ) {
+              if (almacen == 1) {
+                almacen1[f][c] = tablero[f][c] ;
+              }else if (almacen == 2){
+                 almacen2[f][c] = tablero[f][c] ;
+              }
+
+             }
+
+        }
+
+    }
+
+    @Override
+    public void recupera(int almacen) {
+
+        for (int f=0;f<tablero.length ;f++ ) {
+
+          for (int c=0;c<tablero[0].length ;c++ ) {
+               if (almacen == 1) {
+                  tablero[f][c] = almacen1[f][c]  ;
+                } else if (almacen == 2){
+                    tablero[f][c] = almacen2[f][c]  ;
+                }
+
+            }
+
+        }
+    }
 
 private int obtenerCoordenada1(String comando){
 	int resultado = -1;
