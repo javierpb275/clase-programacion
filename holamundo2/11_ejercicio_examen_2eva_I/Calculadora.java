@@ -73,7 +73,7 @@ public class Calculadora implements Resolvible {
 
 			return result;
 
-		}
+	}
 
 	private Operador charToOperator(char op) {
 
